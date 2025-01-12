@@ -1,8 +1,6 @@
-# Ensure the .htaccess file works
-RewriteEngine On
+<IfModule mod_rewrite.c>
+    RewriteEngine On
 
-# If the request is already for the public directory or beyond, do nothing
-RewriteCond %{REQUEST_URI} !^/public/
-
-# Redirect all requests to the 'public' folder
-RewriteRule ^(.*)$ /public/$1 [L,QSA]
+    # Redirect all requests to the public folder
+    RewriteRule ^(.*)$ public/$1 [L]
+</IfModule>
